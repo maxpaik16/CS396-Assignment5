@@ -1,7 +1,7 @@
 
 import numpy as np
 
-NUM_STEPS = 1000
+NUM_STEPS = 2000
 
 GRAVITY_X = 0
 GRAVITY_Y = 0
@@ -19,10 +19,11 @@ MAX_FORCE = 50
 
 SLEEP_TIME = 1/240
 
-numberOfGenerations = 10
+numberOfGenerations = 20
+
 populationSize = 10
 
-numSensorNeurons = 9
-numMotorNeurons = 8
+numSensorNeurons = 4
+numMotorNeurons = 3
 
-motorJointRange = .2
+motorJointRange = 1.

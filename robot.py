@@ -46,10 +46,19 @@ class ROBOT:
 
     def Get_Fitness(self):
         stateOfLinkZero = p.getLinkState(self.robotID, 0)
+        stateOfLinkTwo = p.getLinkState(self.robotID, 2)
         positionOfLinkZero = stateOfLinkZero[0]
+        positionOfLinkTwo = stateOfLinkTwo[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
+        zCoordinateOfLinkZero = positionOfLinkZero[2]
+        zCoordinateOfLinkTwo = positionOfLinkTwo[2]
+
 
         with open('fitnesstmp{}.txt'.format(self.myID), 'w') as f:
-            f.write(str(xCoordinateOfLinkZero))
+            if zCoordinateOfLinkTwo > 1. and zCoordinateOfLinkZero > 1.:
+                fitness = xCoordinateOfLinkZero
+            else:
+                fitness = 100
+            f.write(str(fitness))
 
         os.system('mv {} {}'.format('fitnesstmp{}.txt'.format(self.myID), 'fitness{}.txt'.format(self.myID)))
